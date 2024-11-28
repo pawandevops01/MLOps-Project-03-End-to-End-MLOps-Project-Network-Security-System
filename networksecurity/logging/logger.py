@@ -2,9 +2,12 @@ import logging
 import os
 from datetime import datetime
 
+# Get the project root directory (parent directory of networksecurity folder)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Create logs directory if it doesn't exist
-logs_path = os.path.join(os.getcwd(), "logs")
+# logs_path = os.path.join(os.getcwd(), "logs")
+logs_path = os.path.join(PROJECT_ROOT, "logs")
 os.makedirs(logs_path, exist_ok=True)
 
 # Define a single log file
