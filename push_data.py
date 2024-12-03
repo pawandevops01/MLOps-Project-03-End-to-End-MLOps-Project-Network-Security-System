@@ -53,7 +53,7 @@ class NetworkDataExtract():
             raise error
         
 if __name__ == "__main__":
-    DATA_FILE_PATH = "Network_Data/phisingData.csv"
+    DATA_FILE_PATH = "network_data/phisingData.csv"
     DATABASE = "asad_db"
     COLLECTION = "netwrok_phising_data"
 
