@@ -70,15 +70,15 @@ class DataIngestion:
                 test_size = self.data_ingestion_config.train_test_split_ratio, 
                 )
             
-            dir_path = os.path.dirname(self.data_ingestion_config.training_dataset_file_path)   
+            dir_path = os.path.dirname(self.data_ingestion_config.training_file_path)   
             os.makedirs(dir_path, exist_ok=True)  
 
             train_set.to_csv(
-                self.data_ingestion_config.train_dataset_path, 
+                self.data_ingestion_config.training_file_path, 
                 index=False, 
                 header=True)
             test_set.to_csv(
-                self.data_ingestion_config.test_dataset_path, 
+                self.data_ingestion_config.test_file_path, 
                 index=False, 
                 header=True)
 
@@ -86,8 +86,8 @@ class DataIngestion:
             logging.info("Exited split_data_as_train_test method of DataIngestion class")
 
             return (
-                self.data_ingestion_config.train_dataset_path,
-                self.data_ingestion_config.test_dataset_path,
+                self.data_ingestion_config.training_file_path,
+                self.data_ingestion_config.test_file_path,
             )
 
         except Exception as e:
@@ -114,8 +114,8 @@ class DataIngestion:
             self.split_data_as_train_test(dataframe)
 
             data_ingestion_artifact = DataIngestionArtifact(
-                trained_file_path = self.data_ingestion_config.train_dataset_path,
-                test_file_path=self.data_ingestion_config.test_dataset_path,
+                trained_file_path = self.data_ingestion_config.training_file_path,
+                test_file_path=self.data_ingestion_config.test_file_path,
             )
 
             logging.info("Exited the initiate_data_ingestion method of Data_Ingestion class")
